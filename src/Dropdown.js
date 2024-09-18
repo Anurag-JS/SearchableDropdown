@@ -15,8 +15,8 @@ export default function Dropdown (){
             try{
                 let response = await fetch("https://jsonplaceholder.typicode.com/users");
                 let result = await response.json();
-                setData(result.toLowerCase());
-                console.log(result);
+                setData(result);
+                //console.log(result);
             }catch(err){
                 setError(err);
                 console.log("Error",err)
@@ -37,15 +37,21 @@ export default function Dropdown (){
 
     const handleOnChange = (e) => {
         setSearchQuery(e.target.value);
+        if(data.some(item => item.name.toLowerCase() === e.target.value.toLowerCase())){
+            setSelectedItem(e.target.value);
+        }else{
+            setSelectedItem("")
+        }
     }
 
-
+    const lowerData = data.filter(item => item.name.toLowerCase().includes(searchQuery.toLowerCase()));
 
     return (
         <div>
-            <input type="text" list="items" value={searchQuery} onChange={handleOnChange} placeholder={selectedItem || placeholder || "Select an Item"} />
+            <input type="text" list="items" value={searchQuery} onChange={handleOnChange} placeholder={selectedItem  || "Select an Item"} />
             <datalist id="items">
-                {data.map((item,index)=> <option key={index} value={item} />)}
+                {lowerData.map((item,index)=> <option key={index} value={item} />)}
+                {console.log(lowerData)}
             </datalist> 
         </div>
     )
