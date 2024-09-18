@@ -4,7 +4,7 @@ import Dropdown from "./Dropdown";
 export default function App() {
   return (
     <div className="App">
-      <h1>Hello CodeSandbox</h1>
+      <h1>Searchable Dropdown</h1>
       <Dropdown />
     </div>
   );

@@ -47,12 +47,13 @@ export default function Dropdown (){
     const lowerData = data.filter(item => item.name.toLowerCase().includes(searchQuery.toLowerCase()));
 
     return (
-        <div>
+        <div className="container">
             <input type="text" list="items" value={searchQuery} onChange={handleOnChange} placeholder={selectedItem  || "Select an Item"} />
             <datalist id="items">
-                {lowerData.map((item,index)=> <option key={index} value={item} />)}
+                {lowerData.map((item,index)=> <option key={index} value={item.name} />)}
                 {console.log(lowerData)}
             </datalist> 
+            {selectedItem && <p className="selected-item">Selected Item: {selectedItem}</p>}
         </div>
     )
 }

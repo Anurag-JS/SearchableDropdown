@@ -2,3 +2,36 @@
   font-family: sans-serif;
   text-align: center;
 }
+
+.container{
+  background-color: rgb(57, 69, 117);
+  border: 4px solid rgb(1, 1, 91);
+  border-radius: 20px;
+  width: 300px;
+  margin: 20px auto;
+  text-align: center;
+}
+
+input{
+  padding: 0.4rem;
+  border: 3px solid rgb(1, 1, 91);
+  border-radius: 10px;
+}
+
+datalist option {
+  background-color: #f8f9fa;
+  padding: 10px;
+  font-size: 16px;
+}
+
+datalist option:hover {
+  background-color: #007bff;
+  color: #fff;
+}
+
+.selected-item {
+  margin-top: 15px;
+  font-size: 18px;
+  color: #007bff;
+  font-weight: bold;
+}
